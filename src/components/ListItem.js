@@ -34,7 +34,7 @@ class ListItem extends Component {
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectLibrary(id)}
+        onPress={() => this.props.selectLibrary(this.props.expanded ? null : id)}
       >
         <View>
           <CardSection>
