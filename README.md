@@ -1,3 +1,6 @@
+#Example
+![alt tag](./example/TechStack2.gif)
+
 #JS Playground URL
 https://stephengrider.github.io/JSPlaygrounds/
 
@@ -5,15 +8,18 @@ https://stephengrider.github.io/JSPlaygrounds/
 #Test code 
 
 ```javacript
+
 const reducer = (state = [], action) => { 
   if(action.type === 'split_string') { 
     return action.payload.split(''); 
   } else if (action.type === 'add_character') { 
     return [ ...state, action.payload];
 
+  }  
+  return state; 
 } 
-  
-return state; } const store = Redux.createStore(reducer);
+
+const store = Redux.createStore(reducer);
 
 store.getState();
 

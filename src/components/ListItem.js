@@ -19,9 +19,20 @@ class ListItem extends Component {
 
     if (expanded) {
       return (
-        <View style={{ paddingTop: expanded ? 8 : 0, paddingLeft: 10, paddingRight: 10, backgroundColor: '#85C1E9' }}>
+        <View 
+          style={{ 
+              paddingTop: expanded ? 8 : 0, 
+              paddingLeft: 10, 
+              paddingRight: 10, 
+              backgroundColor: '#85C1E9' }}
+        >
           <CardSection>
-            <Text style={{ flex: 1, marginBottom: expanded ? 8 : 0, color: '#F3FFF3'}}>
+            <Text 
+              style={{ 
+                  flex: 1, 
+                  marginBottom: expanded ? 8 : 0,
+                  color: '#F3FFF3' }}
+            >
               {library.description}
             </Text>
           </CardSection>
