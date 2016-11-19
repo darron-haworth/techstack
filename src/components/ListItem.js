@@ -19,11 +19,13 @@ class ListItem extends Component {
 
     if (expanded) {
       return (
-        <CardSection>
-          <Text style={{ flex: 1 }}>
-            {library.description}
-          </Text>
-        </CardSection>
+        <View style={{ backgroundColor: 'tan' }}>
+          <CardSection>
+            <Text style={{ flex: 1, marginBottom: this.props.expanded ? 8 : 0 }}>
+              {library.description}
+            </Text>
+          </CardSection>
+        </View>
       );
     }
   }
@@ -35,16 +37,18 @@ class ListItem extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.selectLibrary(this.props.expanded ? null : id)}
-      >
+        >
         <View>
           <CardSection>
-            <Text style={titleStyle}>
-              {title}
-            </Text>
+            <View style={{ flex: 1, backgroundColor: '#1F618D' }} >
+              <Text style={titleStyle}>
+                {title}
+              </Text>
+            </View>
           </CardSection>
-
-          {this.renderDescription()}
-
+          <View style={{ paddingTop: this.props.expanded ? 5 : 0, paddingLeft: 12, paddingRight: 12 }}>
+            {this.renderDescription()}
+          </View>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -53,12 +57,9 @@ class ListItem extends Component {
 
 const styles = {
   titleStyle: {
+    color: 'white',
     fontSize: 18,
     paddingLeft: 15
-  },
-  descriptionStyle: {
-    paddingLeft: 10,
-    paddingRight: 10
   }
 };
 
