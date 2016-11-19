@@ -19,9 +19,9 @@ class ListItem extends Component {
 
     if (expanded) {
       return (
-        <View style={{ backgroundColor: 'tan' }}>
+        <View style={{ paddingTop: expanded ? 8 : 0, paddingLeft: 10, paddingRight: 10, backgroundColor: '#85C1E9' }}>
           <CardSection>
-            <Text style={{ flex: 1, marginBottom: this.props.expanded ? 8 : 0 }}>
+            <Text style={{ flex: 1, marginBottom: expanded ? 8 : 0, color: '#F3FFF3'}}>
               {library.description}
             </Text>
           </CardSection>
@@ -33,22 +33,21 @@ class ListItem extends Component {
   render() {
     const { titleStyle } = styles;
     const { id, title } = this.props.library;
+    const { expanded } = this.props;
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectLibrary(this.props.expanded ? null : id)}
-        >
+        onPress={() => this.props.selectLibrary(expanded ? null : id)}
+      >
         <View>
           <CardSection>
-            <View style={{ flex: 1, backgroundColor: '#1F618D' }} >
+            <View style={{ flex: 1, padding: 6, backgroundColor: '#1F618D' }} >
               <Text style={titleStyle}>
                 {title}
               </Text>
             </View>
           </CardSection>
-          <View style={{ paddingTop: this.props.expanded ? 5 : 0, paddingLeft: 12, paddingRight: 12 }}>
-            {this.renderDescription()}
-          </View>
+          {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -59,7 +58,7 @@ const styles = {
   titleStyle: {
     color: 'white',
     fontSize: 18,
-    paddingLeft: 15
+    paddingLeft: 4
   }
 };
 
